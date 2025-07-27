@@ -1,0 +1,48 @@
+<template>
+	<header>
+		<div class="header-container">
+			<router-link to="/">
+				<img src="/src/assets/images/logo.svg" alt="RealEstateCare Logo" />
+			</router-link>
+			<div class="icon-container">
+				<ion-icon :icon="notifications" class="header-icon"></ion-icon>
+				<ion-icon :icon="settings" class="header-icon"></ion-icon>
+			</div>
+		</div>
+	</header>
+</template>
+
+<script setup>
+import { IonIcon } from "@ionic/vue";
+import { notifications, settings } from "ionicons/icons";
+</script>
+
+<style scoped>
+.header-container {
+	background: #161d21;
+	display: flex;
+	justify-content: space-between;
+}
+.icon-container {
+	display: flex;
+	align-items: center;
+}
+ion-icon {
+	color: #fff;
+	padding-inline-end: 1rem;
+	font-size: 36px;
+}
+ion-icon:hover {
+	color: #d1d5db;
+	scale: 1.05;
+	cursor: pointer;
+	transition-property: color, scale;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 200ms;
+}
+img {
+	filter: invert(100%);
+	inline-size: 250px;
+	padding: 1rem;
+}
+</style>
