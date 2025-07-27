@@ -29,3 +29,9 @@
 .ion-palette-dark.md {
   --ion-item-background: #1c1c1d;
 }
+
+:root {
+  --primary-color: rgba(29, 41, 47, 1);
+  --menu-icon: var(--primary-color);
+  --text: var(--primary-color);
+}

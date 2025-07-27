@@ -3,20 +3,20 @@
 		<div class="home-container">
 			<section class="menu-container">
 				<router-link to="/assigned-reports" class="menu-item">
-					<ion-icon :icon="bookmarkOutline" class="menuIcon" />
-					<span>Assigned Reports</span>
+					<ion-icon :icon="bookmarkOutline" class="menu-icon" />
+					<span class="menu-title">Assigned Reports</span>
 				</router-link>
 				<router-link to="/completed-inspections" class="menu-item">
-					<ion-icon :icon="checkmarkCircle" class="menuIcon" />
-					<span>Completed Inspections</span>
+					<ion-icon :icon="checkmarkCircle" class="menu-icon" />
+					<span class="menu-title">Completed Inspections</span>
 				</router-link>
 				<router-link to="/knowledge-base" class="menu-item">
-					<ion-icon :icon="apps" class="menuIcon" />
-					<span>Knowledge Base</span>
+					<ion-icon :icon="apps" class="menu-icon" />
+					<span class="menu-title">Knowledge Base</span>
 				</router-link>
 				<router-link to="/settings-page" class="menu-item">
-					<ion-icon :icon="settings" class="menuIcon" />
-					<span>Settings</span>
+					<ion-icon :icon="settings" class="menu-icon" />
+					<span class="menu-title">Settings</span>
 				</router-link>
 			</section>
 		</div>
@@ -31,12 +31,11 @@ import { bookmarkOutline, checkmarkCircle, apps, settings } from "ionicons/icons
 
 <style scoped>
 .home-container {
-	display: flex;
-	align-items: center;
-	justify-items: center;
-	flex-direction: column;
 	height: 100%;
 	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .menu-container {
@@ -44,29 +43,58 @@ import { bookmarkOutline, checkmarkCircle, apps, settings } from "ionicons/icons
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1.5rem;
-	margin-block: 2rem;
+	padding: 1rem;
 }
 
 .menu-item {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	padding: 16px;
-	margin-bottom: 12px;
+	justify-content: center;
 	text-decoration: none;
-	color: var(--ion-color-primary);
-	border: 1px solid var(--ion-color-light);
-	border-radius: 8px;
-	transition: all 0.2s ease;
-	color: white;
+	padding-inline: 0.5rem;
+	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	border-radius: 0.5rem; /* 8px */
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 200ms;
 }
 
 .menu-item:hover {
-	background-color: var(--ion-color-light);
-	transform: translateY(-2px);
+	transform: scale(1.05);
+	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-.menuIcon {
-	margin-right: 12px;
-	font-size: 20px;
+.menu-item:active {
+	transform: scale(0.95);
+}
+
+.menu-icon {
+	color: var(--menu-icon);
+	font-size: 60px;
+	line-height: 1;
+	font-weight: 700;
+	@media (width >= 640px) {
+		font-size: 72px;
+	}
+	@media (width >= 768px) {
+		font-size: 128px;
+	}
+}
+
+.menu-title {
+	color: var(--text);
+	text-align: center;
+	font-size: 18px;
+	line-height: 1.5556;
+	font-weight: 700;
+	@media (width >= 640px) {
+		font-size: 20px;
+		line-height: 1.4;
+	}
+	@media (width >= 768px) {
+		font-size: 24px;
+		line-height: 1.3333;
+	}
 }
 </style>
