@@ -7,19 +7,19 @@
 			</router-link>
 			<router-link to="/search-page" class="footer-link">
 				<ion-icon :icon="search"></ion-icon>
-				<span>Search</span>
+				<span>Zoeken</span>
 			</router-link>
 			<router-link to="/information-page" class="footer-link">
 				<ion-icon :icon="informationCircle"></ion-icon>
-				<span>Information</span>
+				<span>Informatie</span>
 			</router-link>
 		</div>
 	</footer>
 </template>
 
 <script setup>
-import { IonIcon, IonButton } from "@ionic/vue";
-import { home, search, information, informationCircle } from "ionicons/icons";
+import { IonIcon } from "@ionic/vue";
+import { home, search, informationCircle } from "ionicons/icons";
 </script>
 
 <style scoped>

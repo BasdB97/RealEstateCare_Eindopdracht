@@ -12,9 +12,18 @@
 	</header>
 </template>
 
-<script setup>
+<script>
 import { IonIcon } from "@ionic/vue";
 import { notifications, settings } from "ionicons/icons";
+
+export default {
+	data() {
+		return {
+			notifications,
+			settings,
+		};
+	},
+};
 </script>
 
 <style scoped>
@@ -22,6 +31,11 @@ import { notifications, settings } from "ionicons/icons";
 	background: #161d21;
 	display: flex;
 	justify-content: space-between;
+	block-size: 56px;
+}
+#page-title {
+	color: #fff;
+	font-size: 2rem;
 }
 .icon-container {
 	display: flex;
@@ -42,7 +56,7 @@ ion-icon:hover {
 }
 img {
 	filter: invert(100%);
-	inline-size: 250px;
-	padding: 1rem;
+	block-size: 56px;
+	padding: 0.5rem;
 }
 </style>

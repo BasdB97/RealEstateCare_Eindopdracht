@@ -1,0 +1,287 @@
+{
+	"reports": [
+		{
+			"id": 0,
+			"reportDate": "2024-07-10",
+			"street": "",
+			"houseNumber": "",
+			"postalCode": "",
+			"city": "",
+			"country": "",
+			"completed": false,
+			"inspections": [
+				{
+					"damageReport": {
+						"id": 100,
+						"location": "",
+						"new": true,
+						"damageType": "",
+						"date": "",
+						"urgentActionRequired": true,
+						"description": "",
+						"photos": []
+					},
+					"overdueMaintenance": {
+						"id": 101,
+						"location": "",
+						"maintenanceType": "",
+						"urgentActionRequired": true,
+						"costIndication": "",
+						"photos": []
+					},
+					"technicalInstallation": {
+						"location": "",
+						"installationType": "",
+						"reportedMalfunction": "",
+						"testProcedure": "",
+						"approved": true,
+						"comments": "",
+						"photos": []
+					},
+					"modification": {
+						"location": "",
+						"executedBy": "",
+						"modificationDescription": "",
+						"actionRequired": "",
+						"comments": "",
+						"photos": []
+					}
+				}
+			]
+		},
+		{
+			"id": 1,
+			"reportDate": "2025-02-05",
+			"street": "Hoofdstraat",
+			"houseNumber": "123",
+			"postalCode": "1234 AB",
+			"city": "Amsterdam",
+			"country": "Nederland",
+			"completed": true,
+			"inspections": [
+				{
+					"damageReport": {
+						"id": 100,
+						"location": "voordeur",
+						"new": true,
+						"damageType": "slijtage",
+						"date": "2025-05-13",
+						"urgentActionRequired": true,
+						"description": "Schroef van hendel aandraaien.",
+						"photos": ["voordeur_schade_1.jpg", "voordeur_schade_2.jpg"]
+					},
+					"overdueMaintenance": {
+						"id": 101,
+						"location": "Woonkamer",
+						"maintenanceType": "elektra",
+						"urgentActionRequired": true,
+						"costIndication": "0-500",
+						"photos": []
+					},
+					"technicalInstallation": {
+						"location": "Verlichting slaapkamer",
+						"installationType": "elektra",
+						"reportedMalfunction": "Knipperende bedlampjes",
+						"testProcedure": "",
+						"approved": true,
+						"comments": "Lamp vervangen.",
+						"photos": ["lamp.jpg"]
+					},
+					"modification": {
+						"location": "Oprit",
+						"executedBy": "aannemer",
+						"modificationDescription": "Laadpaal geinstalleerd",
+						"actionRequired": "laten keuren",
+						"comments": "Laadpaal geinstalleerd. Wachten op inschrijving bij de gemeente.",
+						"photos": ["laadpaal.jpg", "laadpaal2.jpg"]
+					}
+				}
+			]
+		},
+		{
+			"id": 2,
+			"reportDate": "2024-10-25",
+			"street": "Kerkstraat",
+			"houseNumber": "45",
+			"postalCode": "2345 CD",
+			"city": "Rotterdam",
+			"country": "Nederland",
+			"completed": false,
+			"inspections": [
+				{
+					"damageReport": {
+						"id": 200,
+						"location": "Badkamer",
+						"new": true,
+						"damageType": "calamiteit",
+						"date": "2025-06-01",
+						"urgentActionRequired": true,
+						"description": "Lekkage in douche door gescheurde kitrand.",
+						"photos": ["douche_lekkage_1.jpg"]
+					},
+					"overdueMaintenance": {
+						"id": 201,
+						"location": "Keuken",
+						"maintenanceType": "leidingwerk",
+						"urgentActionRequired": false,
+						"costIndication": "500-1500",
+						"photos": []
+					},
+					"technicalInstallation": {
+						"location": "CV-ketel",
+						"installationType": "verwarming",
+						"reportedMalfunction": "Onregelmatige verwarming",
+						"testProcedure": "testprocedures/cvketing.pdf",
+						"approved": false,
+						"comments": "Onderhoud gepland voor volgende week.",
+						"photos": []
+					},
+					"modification": null
+				}
+			]
+		},
+		{
+			"id": 3,
+			"reportDate": "2025-04-01",
+			"street": "Parkweg",
+			"houseNumber": "78",
+			"postalCode": "3456 EF",
+			"city": "Utrecht",
+			"country": "Nederland",
+			"completed": true,
+			"inspections": [
+				{
+					"damageReport": {
+						"id": 300,
+						"location": "Tuin",
+						"new": true,
+						"damageType": "weersinvloeden",
+						"date": "2025-06-02",
+						"urgentActionRequired": false,
+						"description": "Schutting beschadigd door storm.",
+						"photos": ["schutting_storm_1.jpg"]
+					},
+					"overdueMaintenance": null,
+					"technicalInstallation": {
+						"location": "Zonnepanelen",
+						"installationType": "elektra",
+						"reportedMalfunction": "Verminderde opbrengst",
+						"testProcedure": "testprocedures/zonnepanelen.pdf",
+						"approved": true,
+						"comments": "Panelen gereinigd.",
+						"photos": ["zonnepanelen_1.jpg"]
+					},
+					"modification": {
+						"location": "Woonkamer",
+						"executedBy": "huurder",
+						"modificationDescription": "Wandverlichting geïnstalleerd",
+						"actionRequired": "inspecteren",
+						"comments": "Controle op veiligheid vereist.",
+						"photos": ["wandverlichting_1.jpg"]
+					}
+				}
+			]
+		},
+		{
+			"id": 4,
+			"reportDate": "2024-12-17",
+			"street": "Stationsplein",
+			"houseNumber": "12",
+			"postalCode": "4567 GH",
+			"city": "Den Haag",
+			"country": "Nederland",
+			"completed": false,
+			"inspections": [
+				{
+					"damageReport": null,
+					"overdueMaintenance": {
+						"id": 401,
+						"location": "Trap",
+						"maintenanceType": "houtwerk",
+						"urgentActionRequired": false,
+						"costIndication": "0-500",
+						"photos": ["trap_slijtage_1.jpg"]
+					},
+					"technicalInstallation": {
+						"location": "Alarmsysteem",
+						"installationType": "beveiliging",
+						"reportedMalfunction": "Frequent vals alarm",
+						"testProcedure": "testprocedures/alarmsysteem.pdf",
+						"approved": false,
+						"comments": "Sensoren moeten worden vervangen.",
+						"photos": []
+					},
+					"modification": null
+				}
+			]
+		},
+		{
+			"id": 5,
+			"reportDate": "2024-09-30",
+			"street": "Molenstraat",
+			"houseNumber": "56",
+			"postalCode": "5678 IJ",
+			"city": "Groningen",
+			"country": "Nederland",
+			"completed": false,
+			"inspections": [
+				{
+					"damageReport": {
+						"id": 500,
+						"location": "Garage",
+						"new": true,
+						"damageType": "mechanisch",
+						"date": "2025-06-03",
+						"urgentActionRequired": false,
+						"description": "Garagedeur klemt door versleten geleiders.",
+						"photos": ["garagedeur_1.jpg"]
+					},
+					"overdueMaintenance": null,
+					"technicalInstallation": null,
+					"modification": {
+						"location": "Tuin",
+						"executedBy": "huurder",
+						"modificationDescription": "Tuinhuisje geplaatst",
+						"actionRequired": "inspecteren",
+						"comments": "Controle op constructieveiligheid nodig.",
+						"photos": ["tuinhuisje_1.jpg", "tuinhuisje_2.jpg"]
+					}
+				}
+			]
+		},
+		{
+			"id": 6,
+			"reportDate": "2023-03-12",
+			"street": "Dorpstraat",
+			"houseNumber": "89",
+			"postalCode": "6789 KL",
+			"city": "Eindhoven",
+			"country": "Nederland",
+			"completed": true,
+			"inspections": [
+				{
+					"damageReport": {
+						"id": 600,
+						"location": "Slaapkamer",
+						"new": true,
+						"damageType": "constructie",
+						"date": "2025-06-04",
+						"urgentActionRequired": true,
+						"description": "Scheur in plafond door lekkage.",
+						"photos": ["plafond_scheur_1.jpg"]
+					},
+					"overdueMaintenance": {
+						"id": 601,
+						"location": "Badkamer",
+						"maintenanceType": "sanitair",
+						"urgentActionRequired": true,
+						"costIndication": "1500+",
+						"photos": []
+					},
+					"technicalInstallation": null,
+					"modification": null
+				}
+			]
+		}
+	]
+}

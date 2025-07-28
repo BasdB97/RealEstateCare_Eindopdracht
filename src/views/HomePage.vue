@@ -4,29 +4,43 @@
 			<section class="menu-container">
 				<router-link to="/assigned-reports" class="menu-item">
 					<ion-icon :icon="bookmarkOutline" class="menu-icon" />
-					<span class="menu-title">Assigned Reports</span>
+					<span class="menu-title">Toegewezen</span>
 				</router-link>
 				<router-link to="/completed-inspections" class="menu-item">
 					<ion-icon :icon="checkmarkCircle" class="menu-icon" />
-					<span class="menu-title">Completed Inspections</span>
+					<span class="menu-title">Uitgevoerd</span>
 				</router-link>
 				<router-link to="/knowledge-base" class="menu-item">
 					<ion-icon :icon="apps" class="menu-icon" />
-					<span class="menu-title">Knowledge Base</span>
+					<span class="menu-title">Kennisbank</span>
 				</router-link>
 				<router-link to="/settings-page" class="menu-item">
 					<ion-icon :icon="settings" class="menu-icon" />
-					<span class="menu-title">Settings</span>
+					<span class="menu-title">Instellingen</span>
 				</router-link>
 			</section>
 		</div>
 	</base-layout>
 </template>
 
-<script setup>
-import BaseLayout from "../components/BaseLayout.vue";
+<script>
 import { IonIcon } from "@ionic/vue";
 import { bookmarkOutline, checkmarkCircle, apps, settings } from "ionicons/icons";
+
+export default {
+	name: "HomePage",
+	components: {
+		IonIcon,
+	},
+	data() {
+		return {
+			bookmarkOutline,
+			checkmarkCircle,
+			apps,
+			settings,
+		};
+	},
+};
 </script>
 
 <style scoped>
@@ -53,7 +67,7 @@ import { bookmarkOutline, checkmarkCircle, apps, settings } from "ionicons/icons
 	justify-content: center;
 	text-decoration: none;
 	padding-inline: 0.5rem;
-	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.15);
 	border-radius: 0.5rem; /* 8px */
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
