@@ -1,5 +1,5 @@
 <template>
-	<div class="damage-report">
+	<div class="inspection-card">
 		<div class="header">
 			<h2 class="title">Schade ID: {{ report.id }}</h2>
 			<ion-chip v-if="report.new" color="danger">
@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="info-row" v-if="report.urgentActionRequired">
-			<ion-badge color="danger">Urgente actie vereist</ion-badge>
+			<ion-badge color="danger">Acute actie vereist</ion-badge>
 		</div>
 
 		<div class="info-row">
@@ -38,7 +38,7 @@
 					v-for="(photo, index) in report.photos"
 					:key="index"
 					:src="getPhotoUrl(photo)"
-					class="report-photo"
+					class="inspection-photo"
 					@click="openPhotoModal(photo)" />
 			</div>
 			<div v-else></div>
@@ -69,6 +69,7 @@
 </template>
 
 <script>
+import { getPhotoUrl } from "@/utils/photoUtils";
 import {
 	IonBadge,
 	IonImg,
@@ -115,9 +116,7 @@ export default {
 		};
 	},
 	methods: {
-		getPhotoUrl(filename) {
-			return `/photos/${filename}`;
-		},
+		getPhotoUrl,
 		openPhotoModal(photo) {
 			this.selectedPhoto = photo;
 			this.isPhotoModalOpen = true;
@@ -131,14 +130,6 @@ export default {
 </script>
 
 <style scoped>
-.header {
-	margin-bottom: 8px;
-	display: flex;
-	justify-content: space-between;
-	inline-size: 100%;
-	border-bottom: 1px solid var(--text);
-}
-
 .title {
 	font-size: 1.5rem;
 	color: #000;
@@ -148,71 +139,5 @@ export default {
 	font-size: 0.9rem;
 	color: var(--ion-color-medium);
 	margin: 0;
-}
-
-.info-row {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 16px;
-	padding: 8px 12px;
-	background-color: #f9f9f9;
-	border-radius: 6px;
-	border: 1px solid #e0e0e0;
-}
-
-.info-row strong {
-	font-weight: 600;
-	margin-bottom: 4px;
-	color: #333;
-}
-
-.info-row span,
-.info-row p {
-	margin: 0;
-	color: #555;
-	line-height: 1.4;
-	font-size: 0.95rem;
-}
-
-.photo-grid {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-	margin-top: 12px;
-}
-
-.report-photo {
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-	border-radius: 8px;
-	cursor: pointer;
-	transition: transform 0.2s ease;
-}
-
-.report-photo:hover {
-	transform: scale(1.05);
-}
-
-.photo-modal-content {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #000;
-}
-
-.fullscreen-photo-container {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 20px;
-}
-
-.fullscreen-photo {
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: contain;
 }
 </style>

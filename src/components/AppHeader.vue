@@ -17,6 +17,10 @@ import { IonIcon } from "@ionic/vue";
 import { notifications, settings } from "ionicons/icons";
 
 export default {
+	name: "AppHeader",
+	components: {
+		IonIcon,
+	},
 	data() {
 		return {
 			notifications,
