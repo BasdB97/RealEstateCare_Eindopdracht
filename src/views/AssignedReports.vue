@@ -3,12 +3,10 @@
 		<ion-spinner v-if="loading" name="circles" id="spinner"></ion-spinner>
 		<ion-content v-else>
 			<h1 class="ion-text-center">Toegewezen rapportages</h1>
-			<ion-card
-				v-for="report in reports"
-				:key="report.id"
-				@click="report.showContent = !report.showContent"
-				class="report-card">
-				<ion-card-header>
+			<ion-card v-for="report in reports" :key="report.id" class="report-card">
+				<ion-card-header
+					@click="report.showContent = !report.showContent"
+					class="report-card-header">
 					<ion-card-title>
 						{{ report.street }} {{ report.houseNumber }}, {{ report.city }}
 					</ion-card-title>
@@ -94,12 +92,14 @@ ion-card-title {
 }
 
 .report-card {
-	cursor: pointer;
 	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.15);
 	border-radius: 0.5rem; /* 8px */
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 200ms;
+}
+.report-card-header {
+	cursor: pointer;
 }
 .report-card:hover {
 	transform: scale(1.05);
