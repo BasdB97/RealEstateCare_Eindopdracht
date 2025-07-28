@@ -11,41 +11,61 @@
 			"completed": false,
 			"inspections": [
 				{
-					"damageReport": {
-						"id": 100,
-						"location": "",
-						"new": true,
-						"damageType": "",
-						"date": "",
-						"urgentActionRequired": true,
-						"description": "",
-						"photos": []
-					},
-					"overdueMaintenance": {
-						"id": 101,
-						"location": "",
-						"maintenanceType": "",
-						"urgentActionRequired": true,
-						"costIndication": "",
-						"photos": []
-					},
-					"technicalInstallation": {
-						"location": "",
-						"installationType": "",
-						"reportedMalfunction": "",
-						"testProcedure": "",
-						"approved": true,
-						"comments": "",
-						"photos": []
-					},
-					"modification": {
-						"location": "",
-						"executedBy": "",
-						"modificationDescription": "",
-						"actionRequired": "",
-						"comments": "",
-						"photos": []
-					}
+					"damageReports": [
+						{
+							"id": 1,
+							"location": "Voordeur",
+							"new": true,
+							"damageType": "inbraakschade",
+							"date": "2024-07-01",
+							"urgentActionRequired": false,
+							"description": "Inbraakschade aan het slot.",
+							"photos": ["slot_schade.jpg"]
+						},
+						{
+							"id": 2,
+							"location": "Douche",
+							"new": true,
+							"damageType": "lekkage",
+							"date": "2024-07-03",
+							"urgentActionRequired": true,
+							"description": "Lekkage door gescheurde kitrand.",
+							"photos": ["douche_lekkage_1.jpg"]
+						}
+					],
+					"overdueMaintenance": [
+						{
+							"id": 1,
+							"location": "",
+							"maintenanceType": "",
+							"urgentActionRequired": true,
+							"costIndication": "",
+							"photos": []
+						}
+					],
+					"technicalInstallation": [
+						{
+							"id": 1,
+							"location": "",
+							"installationType": "",
+							"reportedMalfunction": "",
+							"testProcedure": "",
+							"approved": true,
+							"comments": "",
+							"photos": []
+						}
+					],
+					"modification": [
+						{
+							"id": 1,
+							"location": "",
+							"executedBy": "",
+							"modificationDescription": "",
+							"actionRequired": "",
+							"comments": "",
+							"photos": []
+						}
+					]
 				}
 			]
 		},
@@ -60,41 +80,51 @@
 			"completed": true,
 			"inspections": [
 				{
-					"damageReport": {
-						"id": 100,
-						"location": "voordeur",
-						"new": true,
-						"damageType": "slijtage",
-						"date": "2025-05-13",
-						"urgentActionRequired": true,
-						"description": "Schroef van hendel aandraaien.",
-						"photos": ["voordeur_schade_1.jpg", "voordeur_schade_2.jpg"]
-					},
-					"overdueMaintenance": {
-						"id": 101,
-						"location": "Woonkamer",
-						"maintenanceType": "elektra",
-						"urgentActionRequired": true,
-						"costIndication": "0-500",
-						"photos": []
-					},
-					"technicalInstallation": {
-						"location": "Verlichting slaapkamer",
-						"installationType": "elektra",
-						"reportedMalfunction": "Knipperende bedlampjes",
-						"testProcedure": "",
-						"approved": true,
-						"comments": "Lamp vervangen.",
-						"photos": ["lamp.jpg"]
-					},
-					"modification": {
-						"location": "Oprit",
-						"executedBy": "aannemer",
-						"modificationDescription": "Laadpaal geinstalleerd",
-						"actionRequired": "laten keuren",
-						"comments": "Laadpaal geinstalleerd. Wachten op inschrijving bij de gemeente.",
-						"photos": ["laadpaal.jpg", "laadpaal2.jpg"]
-					}
+					"damageReports": [
+						{
+							"id": 1,
+							"location": "voordeur",
+							"new": true,
+							"damageType": "slijtage",
+							"date": "2025-05-13",
+							"urgentActionRequired": true,
+							"description": "Schroef van hendel aandraaien.",
+							"photos": ["voordeur_schade_1.jpg", "voordeur_schade_2.jpg"]
+						}
+					],
+					"overdueMaintenance": [
+						{
+							"id": 2,
+							"location": "Woonkamer",
+							"maintenanceType": "elektra",
+							"urgentActionRequired": true,
+							"costIndication": "0-500",
+							"photos": []
+						}
+					],
+					"technicalInstallation": [
+						{
+							"id": 1,
+							"location": "Verlichting slaapkamer",
+							"installationType": "elektra",
+							"reportedMalfunction": "Knipperende bedlampjes",
+							"testProcedure": "",
+							"approved": true,
+							"comments": "Lamp vervangen.",
+							"photos": ["lamp.jpg"]
+						}
+					],
+					"modification": [
+						{
+							"id": 1,
+							"location": "Oprit",
+							"executedBy": "aannemer",
+							"modificationDescription": "Laadpaal geinstalleerd",
+							"actionRequired": "laten keuren",
+							"comments": "Laadpaal geinstalleerd. Wachten op inschrijving bij de gemeente.",
+							"photos": ["laadpaal.jpg", "laadpaal2.jpg"]
+						}
+					]
 				}
 			]
 		},
@@ -109,34 +139,41 @@
 			"completed": false,
 			"inspections": [
 				{
-					"damageReport": {
-						"id": 200,
-						"location": "Badkamer",
-						"new": true,
-						"damageType": "calamiteit",
-						"date": "2025-06-01",
-						"urgentActionRequired": true,
-						"description": "Lekkage in douche door gescheurde kitrand.",
-						"photos": ["douche_lekkage_1.jpg"]
-					},
-					"overdueMaintenance": {
-						"id": 201,
-						"location": "Keuken",
-						"maintenanceType": "leidingwerk",
-						"urgentActionRequired": false,
-						"costIndication": "500-1500",
-						"photos": []
-					},
-					"technicalInstallation": {
-						"location": "CV-ketel",
-						"installationType": "verwarming",
-						"reportedMalfunction": "Onregelmatige verwarming",
-						"testProcedure": "testprocedures/cvketing.pdf",
-						"approved": false,
-						"comments": "Onderhoud gepland voor volgende week.",
-						"photos": []
-					},
-					"modification": null
+					"damageReports": [
+						{
+							"id": 200,
+							"location": "Badkamer",
+							"new": true,
+							"damageType": "calamiteit",
+							"date": "2025-06-01",
+							"urgentActionRequired": true,
+							"description": "Lekkage in douche door gescheurde kitrand.",
+							"photos": ["douche_lekkage_1.jpg"]
+						}
+					],
+					"overdueMaintenance": [
+						{
+							"id": 201,
+							"location": "Keuken",
+							"maintenanceType": "leidingwerk",
+							"urgentActionRequired": false,
+							"costIndication": "500-1500",
+							"photos": []
+						}
+					],
+					"technicalInstallation": [
+						{
+							"id": 1,
+							"location": "CV-ketel",
+							"installationType": "verwarming",
+							"reportedMalfunction": "Onregelmatige verwarming",
+							"testProcedure": "testprocedures/cvketing.pdf",
+							"approved": false,
+							"comments": "Onderhoud gepland voor volgende week.",
+							"photos": []
+						}
+					],
+					"modification": []
 				}
 			]
 		},
@@ -151,34 +188,42 @@
 			"completed": true,
 			"inspections": [
 				{
-					"damageReport": {
-						"id": 300,
-						"location": "Tuin",
-						"new": true,
-						"damageType": "weersinvloeden",
-						"date": "2025-06-02",
-						"urgentActionRequired": false,
-						"description": "Schutting beschadigd door storm.",
-						"photos": ["schutting_storm_1.jpg"]
-					},
-					"overdueMaintenance": null,
-					"technicalInstallation": {
-						"location": "Zonnepanelen",
-						"installationType": "elektra",
-						"reportedMalfunction": "Verminderde opbrengst",
-						"testProcedure": "testprocedures/zonnepanelen.pdf",
-						"approved": true,
-						"comments": "Panelen gereinigd.",
-						"photos": ["zonnepanelen_1.jpg"]
-					},
-					"modification": {
-						"location": "Woonkamer",
-						"executedBy": "huurder",
-						"modificationDescription": "Wandverlichting geïnstalleerd",
-						"actionRequired": "inspecteren",
-						"comments": "Controle op veiligheid vereist.",
-						"photos": ["wandverlichting_1.jpg"]
-					}
+					"damageReports": [
+						{
+							"id": 300,
+							"location": "Tuin",
+							"new": true,
+							"damageType": "weersinvloeden",
+							"date": "2025-06-02",
+							"urgentActionRequired": false,
+							"description": "Schutting beschadigd door storm.",
+							"photos": ["schutting_storm_1.jpg"]
+						}
+					],
+					"overdueMaintenance": [],
+					"technicalInstallation": [
+						{
+							"id": 1,
+							"location": "Zonnepanelen",
+							"installationType": "elektra",
+							"reportedMalfunction": "Verminderde opbrengst",
+							"testProcedure": "testprocedures/zonnepanelen.pdf",
+							"approved": true,
+							"comments": "Panelen gereinigd.",
+							"photos": ["zonnepanelen_1.jpg"]
+						}
+					],
+					"modification": [
+						{
+							"id": 1,
+							"location": "Woonkamer",
+							"executedBy": "huurder",
+							"modificationDescription": "Wandverlichting geïnstalleerd",
+							"actionRequired": "inspecteren",
+							"comments": "Controle op veiligheid vereist.",
+							"photos": ["wandverlichting_1.jpg"]
+						}
+					]
 				}
 			]
 		},
@@ -193,25 +238,30 @@
 			"completed": false,
 			"inspections": [
 				{
-					"damageReport": null,
-					"overdueMaintenance": {
-						"id": 401,
-						"location": "Trap",
-						"maintenanceType": "houtwerk",
-						"urgentActionRequired": false,
-						"costIndication": "0-500",
-						"photos": ["trap_slijtage_1.jpg"]
-					},
-					"technicalInstallation": {
-						"location": "Alarmsysteem",
-						"installationType": "beveiliging",
-						"reportedMalfunction": "Frequent vals alarm",
-						"testProcedure": "testprocedures/alarmsysteem.pdf",
-						"approved": false,
-						"comments": "Sensoren moeten worden vervangen.",
-						"photos": []
-					},
-					"modification": null
+					"damageReports": [],
+					"overdueMaintenance": [
+						{
+							"id": 401,
+							"location": "Trap",
+							"maintenanceType": "houtwerk",
+							"urgentActionRequired": false,
+							"costIndication": "0-500",
+							"photos": ["trap_slijtage_1.jpg"]
+						}
+					],
+					"technicalInstallation": [
+						{
+							"id": 1,
+							"location": "Alarmsysteem",
+							"installationType": "beveiliging",
+							"reportedMalfunction": "Frequent vals alarm",
+							"testProcedure": "testprocedures/alarmsysteem.pdf",
+							"approved": false,
+							"comments": "Sensoren moeten worden vervangen.",
+							"photos": []
+						}
+					],
+					"modification": []
 				}
 			]
 		},
@@ -226,26 +276,31 @@
 			"completed": false,
 			"inspections": [
 				{
-					"damageReport": {
-						"id": 500,
-						"location": "Garage",
-						"new": true,
-						"damageType": "mechanisch",
-						"date": "2025-06-03",
-						"urgentActionRequired": false,
-						"description": "Garagedeur klemt door versleten geleiders.",
-						"photos": ["garagedeur_1.jpg"]
-					},
-					"overdueMaintenance": null,
-					"technicalInstallation": null,
-					"modification": {
-						"location": "Tuin",
-						"executedBy": "huurder",
-						"modificationDescription": "Tuinhuisje geplaatst",
-						"actionRequired": "inspecteren",
-						"comments": "Controle op constructieveiligheid nodig.",
-						"photos": ["tuinhuisje_1.jpg", "tuinhuisje_2.jpg"]
-					}
+					"damageReports": [
+						{
+							"id": 500,
+							"location": "Garage",
+							"new": true,
+							"damageType": "mechanisch",
+							"date": "2025-06-03",
+							"urgentActionRequired": false,
+							"description": "Garagedeur klemt door versleten geleiders.",
+							"photos": ["garagedeur_1.jpg"]
+						}
+					],
+					"overdueMaintenance": [],
+					"technicalInstallation": [],
+					"modification": [
+						{
+							"id": 1,
+							"location": "Tuin",
+							"executedBy": "huurder",
+							"modificationDescription": "Tuinhuisje geplaatst",
+							"actionRequired": "inspecteren",
+							"comments": "Controle op constructieveiligheid nodig.",
+							"photos": ["tuinhuisje_1.jpg", "tuinhuisje_2.jpg"]
+						}
+					]
 				}
 			]
 		},
@@ -260,26 +315,30 @@
 			"completed": true,
 			"inspections": [
 				{
-					"damageReport": {
-						"id": 600,
-						"location": "Slaapkamer",
-						"new": true,
-						"damageType": "constructie",
-						"date": "2025-06-04",
-						"urgentActionRequired": true,
-						"description": "Scheur in plafond door lekkage.",
-						"photos": ["plafond_scheur_1.jpg"]
-					},
-					"overdueMaintenance": {
-						"id": 601,
-						"location": "Badkamer",
-						"maintenanceType": "sanitair",
-						"urgentActionRequired": true,
-						"costIndication": "1500+",
-						"photos": []
-					},
-					"technicalInstallation": null,
-					"modification": null
+					"damageReports": [
+						{
+							"id": 600,
+							"location": "Slaapkamer",
+							"new": true,
+							"damageType": "constructie",
+							"date": "2025-06-04",
+							"urgentActionRequired": true,
+							"description": "Scheur in plafond door lekkage.",
+							"photos": ["plafond_scheur_1.jpg"]
+						}
+					],
+					"overdueMaintenance": [
+						{
+							"id": 601,
+							"location": "Badkamer",
+							"maintenanceType": "sanitair",
+							"urgentActionRequired": true,
+							"costIndication": "1500+",
+							"photos": []
+						}
+					],
+					"technicalInstallation": [],
+					"modification": []
 				}
 			]
 		}

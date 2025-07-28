@@ -66,7 +66,7 @@ export default {
 	align-items: center;
 	justify-content: center;
 	text-decoration: none;
-	padding-inline: 0.5rem;
+	padding-inline: 2.5rem;
 	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.15);
 	border-radius: 0.5rem; /* 8px */
 	transition-property: all;
