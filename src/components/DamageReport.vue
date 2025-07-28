@@ -1,7 +1,7 @@
 <template>
 	<div class="damage-report">
 		<div class="header">
-			<h2 class="title">Schade</h2>
+			<h2 class="title">Schade ID: {{ report.id }}</h2>
 			<ion-chip v-if="report.new" color="danger">
 				<ion-label>Nieuwe schade</ion-label>
 			</ion-chip>
@@ -41,7 +41,7 @@
 					class="report-photo"
 					@click="openPhotoModal(photo)" />
 			</div>
-			<div v-else>Geen foto's beschikbaar.</div>
+			<div v-else></div>
 		</div>
 
 		<!-- Photo Modal -->

@@ -17,11 +17,14 @@
 
 				<ion-card-content v-if="report.showContent">
 					<div v-for="(inspection, i) in report.inspections" :key="i">
-						<DamageReport v-if="inspection.damageReport" :report="inspection.damageReport" />
+						<DamageReport
+							v-for="damageReport in inspection.damageReports"
+							:key="damageReport.id"
+							:report="damageReport" />
 						<!-- <OverdueMaintenance
 							v-if="inspection.overdueMaintenance"
 							:report="inspection.overdueMaintenance" />
-						<TechnicalInstallation
+				<TechnicalInstallation
 							v-if="inspection.technicalInstallation"
 							:report="inspection.technicalInstallation" />
 						<Modification v-if="inspection.modification" :report="inspection.modification" /> -->
