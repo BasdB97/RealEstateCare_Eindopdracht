@@ -3,10 +3,11 @@
 		<ion-spinner v-if="loading" name="circles" id="spinner"></ion-spinner>
 		<ion-content v-else>
 			<h1 class="ion-text-center">Toegewezen rapportages</h1>
-			<ion-card v-for="report in reports" :key="report.id" class="report-card">
-				<ion-card-header
-					@click="report.showContent = !report.showContent"
-					class="report-card-header">
+			<ion-card
+				v-for="report in reports"
+				:key="report.id"
+				:class="['report-card', { 'content-open': report.showContent }]">
+				<ion-card-header @click="toggleReport(report)" class="report-card-header">
 					<ion-card-title>
 						{{ report.street }} {{ report.houseNumber }}, {{ report.city }}
 					</ion-card-title>
@@ -21,10 +22,11 @@
 							v-for="damageReport in inspection.damageReports"
 							:key="damageReport.id"
 							:report="damageReport" />
-						<!-- <OverdueMaintenance
-							v-if="inspection.overdueMaintenance"
-							:report="inspection.overdueMaintenance" />
-				<TechnicalInstallation
+						<OverdueMaintenance
+							v-for="overdueMaintenance in inspection.overdueMaintenance"
+							:key="overdueMaintenance.id"
+							:report="overdueMaintenance" />
+						<!--	<TechnicalInstallation
 							v-if="inspection.technicalInstallation"
 							:report="inspection.technicalInstallation" />
 						<Modification v-if="inspection.modification" :report="inspection.modification" /> -->
@@ -73,6 +75,20 @@ export default {
 	mounted() {
 		this.store.fetchReports();
 	},
+	methods: {
+		// Method that closes all reports and opens the selected report
+		toggleReport(selectedReport) {
+			const isCurrentlyOpen = selectedReport.showContent;
+
+			this.reports.forEach((report) => {
+				report.showContent = false;
+			});
+
+			if (!isCurrentlyOpen) {
+				selectedReport.showContent = true;
+			}
+		},
+	},
 	computed: {
 		reports() {
 			return this.store.sortedReportsByDate;
@@ -103,10 +119,6 @@ ion-card-title {
 }
 .report-card-header {
 	cursor: pointer;
-}
-.report-card:hover {
-	transform: scale(1.05);
-	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .report-card:active {
