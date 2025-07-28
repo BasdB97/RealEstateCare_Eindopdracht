@@ -69,6 +69,7 @@
 </template>
 
 <script>
+import { getPhotoUrl } from "@/utils/photoUtils";
 import {
 	IonBadge,
 	IonImg,
@@ -115,9 +116,7 @@ export default {
 		};
 	},
 	methods: {
-		getPhotoUrl(filename) {
-			return `/photos/${filename}`;
-		},
+		getPhotoUrl,
 		openPhotoModal(photo) {
 			this.selectedPhoto = photo;
 			this.isPhotoModalOpen = true;

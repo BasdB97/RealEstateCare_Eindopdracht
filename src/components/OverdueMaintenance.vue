@@ -4,6 +4,10 @@
 			<h2 class="title">Achterstallig onderhoud ID: {{ report.id }}</h2>
 		</div>
 
+		<div class="info-row" v-if="report.urgentActionRequired">
+			<ion-badge color="danger">Acute actie vereist</ion-badge>
+		</div>
+
 		<div class="info-row">
 			<strong>Locatie:</strong>
 			<span>{{ report.location }}</span>
@@ -12,10 +16,6 @@
 		<div class="info-row">
 			<strong>Soort onderhoud:</strong>
 			<span>{{ report.maintenanceType }}</span>
-		</div>
-
-		<div class="info-row" v-if="report.urgentActionRequired">
-			<ion-badge color="danger">Acute actie vereist</ion-badge>
 		</div>
 
 		<div class="info-row">
@@ -47,18 +47,24 @@
 	</div>
 </template>
 <script>
-import { IonChip, IonLabel } from "@ionic/vue";
+import { IonChip, IonLabel, IonBadge, IonImg } from "@ionic/vue";
+import { getPhotoUrl } from "@/utils/photoUtils";
 export default {
 	name: "OverdueMaintenance",
 	components: {
 		IonChip,
 		IonLabel,
+		IonBadge,
+		IonImg,
 	},
 	props: {
 		report: {
 			type: Object,
 			required: true,
 		},
+	},
+	methods: {
+		getPhotoUrl,
 	},
 };
 </script>

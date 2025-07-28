@@ -198,9 +198,37 @@
 							"urgentActionRequired": false,
 							"description": "Schutting beschadigd door storm.",
 							"photos": ["schutting_storm_1.jpg"]
+						},
+						{
+							"id": 301,
+							"location": "Keuken",
+							"new": true,
+							"damageType": "waterschade",
+							"date": "2025-06-03",
+							"urgentActionRequired": true,
+							"description": "Waterschade aan plafond door lekkende leiding.",
+							"photos": ["plafond_lekkage_1.jpg", "plafond_lekkage_2.jpg"]
 						}
 					],
-					"overdueMaintenance": [],
+
+          "overdueMaintenance": [
+						{
+							"id": 301,
+							"location": "Dakkapel",
+							"maintenanceType": "schilderwerk",
+							"urgentActionRequired": true,
+							"costIndication": "500-1500",
+							"photos": ["dakkapel_schilderwerk_1.jpg"]
+						},
+						{
+							"id": 302,
+							"location": "Badkamer",
+							"maintenanceType": "kitwerk",
+							"urgentActionRequired": false,
+							"costIndication": "0-500",
+							"photos": ["badkamer_kitwerk_1.jpg", "badkamer_kitwerk_2.jpg"]
+						}
+					],
 					"technicalInstallation": [
 						{
 							"id": 1,

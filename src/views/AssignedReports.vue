@@ -46,6 +46,7 @@ import {
 	IonCardTitle,
 	IonCardSubtitle,
 	IonCardContent,
+	IonIcon,
 } from "@ionic/vue";
 import { useStore } from "../store/store";
 import DamageReport from "../components/DamageReport.vue";
@@ -58,6 +59,7 @@ export default {
 		IonContent,
 		IonSpinner,
 		IonCard,
+		IonIcon,
 		IonCardHeader,
 		IonCardTitle,
 		IonCardSubtitle,
