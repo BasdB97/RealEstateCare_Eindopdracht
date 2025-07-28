@@ -43,7 +43,7 @@
 							"photos": []
 						}
 					],
-					"technicalInstallation": [
+					"technicalInstallations": [
 						{
 							"id": 1,
 							"location": "",
@@ -55,7 +55,7 @@
 							"photos": []
 						}
 					],
-					"modification": [
+					"modifications": [
 						{
 							"id": 1,
 							"location": "",
@@ -102,7 +102,7 @@
 							"photos": []
 						}
 					],
-					"technicalInstallation": [
+					"technicalInstallations": [
 						{
 							"id": 1,
 							"location": "Verlichting slaapkamer",
@@ -114,7 +114,7 @@
 							"photos": ["lamp.jpg"]
 						}
 					],
-					"modification": [
+					"modifications": [
 						{
 							"id": 1,
 							"location": "Oprit",
@@ -161,7 +161,7 @@
 							"photos": []
 						}
 					],
-					"technicalInstallation": [
+					"technicalInstallations": [
 						{
 							"id": 1,
 							"location": "CV-ketel",
@@ -173,7 +173,7 @@
 							"photos": []
 						}
 					],
-					"modification": []
+					"modifications": []
 				}
 			]
 		},
@@ -192,26 +192,15 @@
 						{
 							"id": 300,
 							"location": "Tuin",
-							"new": true,
-							"damageType": "weersinvloeden",
+							"new": false,
+							"damageType": "anders, zie omschrijving",
 							"date": "2025-06-02",
-							"urgentActionRequired": false,
-							"description": "Schutting beschadigd door storm.",
-							"photos": ["schutting_storm_1.jpg"]
-						},
-						{
-							"id": 301,
-							"location": "Keuken",
-							"new": true,
-							"damageType": "waterschade",
-							"date": "2025-06-03",
 							"urgentActionRequired": true,
-							"description": "Waterschade aan plafond door lekkende leiding.",
-							"photos": ["plafond_lekkage_1.jpg", "plafond_lekkage_2.jpg"]
+							"description": "Schutting beschadigd door storm.",
+							"photos": []
 						}
 					],
-
-          "overdueMaintenance": [
+					"overdueMaintenance": [
 						{
 							"id": 301,
 							"location": "Dakkapel",
@@ -219,17 +208,9 @@
 							"urgentActionRequired": true,
 							"costIndication": "500-1500",
 							"photos": ["dakkapel_schilderwerk_1.jpg"]
-						},
-						{
-							"id": 302,
-							"location": "Badkamer",
-							"maintenanceType": "kitwerk",
-							"urgentActionRequired": false,
-							"costIndication": "0-500",
-							"photos": ["badkamer_kitwerk_1.jpg", "badkamer_kitwerk_2.jpg"]
 						}
 					],
-					"technicalInstallation": [
+					"technicalInstallations": [
 						{
 							"id": 1,
 							"location": "Zonnepanelen",
@@ -241,9 +222,10 @@
 							"photos": ["zonnepanelen_1.jpg"]
 						}
 					],
-					"modification": [
+					"modifications": [
 						{
 							"id": 1,
+							"currentSituation": "modificaties.pdf",
 							"location": "Woonkamer",
 							"executedBy": "huurder",
 							"modificationDescription": "Wandverlichting geïnstalleerd",
@@ -277,7 +259,7 @@
 							"photos": ["trap_slijtage_1.jpg"]
 						}
 					],
-					"technicalInstallation": [
+					"technicalInstallations": [
 						{
 							"id": 1,
 							"location": "Alarmsysteem",
@@ -289,7 +271,7 @@
 							"photos": []
 						}
 					],
-					"modification": []
+					"modifications": []
 				}
 			]
 		},
@@ -317,8 +299,8 @@
 						}
 					],
 					"overdueMaintenance": [],
-					"technicalInstallation": [],
-					"modification": [
+					"technicalInstallations": [],
+					"modifications": [
 						{
 							"id": 1,
 							"location": "Tuin",
@@ -365,8 +347,8 @@
 							"photos": []
 						}
 					],
-					"technicalInstallation": [],
-					"modification": []
+					"technicalInstallations": [],
+					"modifications": []
 				}
 			]
 		}

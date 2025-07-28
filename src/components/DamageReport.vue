@@ -5,6 +5,13 @@
 			<ion-chip v-if="report.new" color="danger">
 				<ion-label>Nieuwe schade</ion-label>
 			</ion-chip>
+			<ion-chip v-else color="warning">
+				<ion-label>Bestaande schade</ion-label>
+			</ion-chip>
+		</div>
+
+		<div class="info-row" v-if="report.urgentActionRequired">
+			<ion-badge color="danger">Acute actie vereist!</ion-badge>
 		</div>
 
 		<div class="info-row">
@@ -22,13 +29,9 @@
 			<span>{{ report.date }}</span>
 		</div>
 
-		<div class="info-row" v-if="report.urgentActionRequired">
-			<ion-badge color="danger">Acute actie vereist</ion-badge>
-		</div>
-
 		<div class="info-row">
 			<strong>Omschrijving:</strong>
-			<p>{{ report.description || "Geen omschrijving beschikbaar." }}</p>
+			<span>{{ report.description || "Geen omschrijving beschikbaar." }}</span>
 		</div>
 
 		<div class="info-row">
@@ -41,35 +44,21 @@
 					class="inspection-photo"
 					@click="openPhotoModal(photo)" />
 			</div>
-			<div v-else></div>
+			<div v-else>
+				<span>Geen foto's beschikbaar.</span>
+			</div>
 		</div>
 
 		<!-- Photo Modal -->
-		<ion-modal :is-open="isPhotoModalOpen" @did-dismiss="closePhotoModal">
-			<ion-header>
-				<ion-toolbar>
-					<ion-title>Foto</ion-title>
-					<ion-buttons slot="end">
-						<ion-button @click="closePhotoModal">
-							<ion-icon :icon="closeOutline"></ion-icon>
-						</ion-button>
-					</ion-buttons>
-				</ion-toolbar>
-			</ion-header>
-			<ion-content class="photo-modal-content">
-				<div class="fullscreen-photo-container">
-					<ion-img
-						:src="getPhotoUrl(selectedPhoto)"
-						class="fullscreen-photo"
-						v-if="selectedPhoto" />
-				</div>
-			</ion-content>
-		</ion-modal>
+		<PhotoModal :is-open="isPhotoModalOpen" :photo="selectedPhoto" @close="closePhotoModal" />
 	</div>
 </template>
 
 <script>
 import { getPhotoUrl } from "@/utils/photoUtils";
+import { usePhotoModal } from "@/composables/usePhotoModal.js";
+import PhotoModal from "@/components/PhotoModal.vue";
+
 import {
 	IonBadge,
 	IonImg,
@@ -84,7 +73,6 @@ import {
 	IonIcon,
 	IonContent,
 } from "@ionic/vue";
-import { closeOutline } from "ionicons/icons";
 
 export default {
 	name: "DamageReport",
@@ -101,6 +89,7 @@ export default {
 		IonButton,
 		IonIcon,
 		IonContent,
+		PhotoModal,
 	},
 	props: {
 		report: {
@@ -108,23 +97,15 @@ export default {
 			required: true,
 		},
 	},
-	data() {
+	setup() {
+		const { isPhotoModalOpen, selectedPhoto, openPhotoModal, closePhotoModal } = usePhotoModal();
 		return {
-			isPhotoModalOpen: false,
-			selectedPhoto: "",
-			closeOutline,
+			isPhotoModalOpen,
+			selectedPhoto,
+			openPhotoModal,
+			closePhotoModal,
+			getPhotoUrl,
 		};
-	},
-	methods: {
-		getPhotoUrl,
-		openPhotoModal(photo) {
-			this.selectedPhoto = photo;
-			this.isPhotoModalOpen = true;
-		},
-		closePhotoModal() {
-			this.isPhotoModalOpen = false;
-			this.selectedPhoto = "";
-		},
 	},
 };
 </script>

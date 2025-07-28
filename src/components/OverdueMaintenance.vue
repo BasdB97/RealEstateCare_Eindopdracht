@@ -5,7 +5,7 @@
 		</div>
 
 		<div class="info-row" v-if="report.urgentActionRequired">
-			<ion-badge color="danger">Acute actie vereist</ion-badge>
+			<ion-badge color="danger">Acute actie vereist!</ion-badge>
 		</div>
 
 		<div class="info-row">
@@ -42,7 +42,6 @@
 					class="inspection-photo"
 					@click="openPhotoModal(photo)" />
 			</div>
-			<div v-else></div>
 		</div>
 	</div>
 </template>

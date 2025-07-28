@@ -22,14 +22,21 @@
 							v-for="damageReport in inspection.damageReports"
 							:key="damageReport.id"
 							:report="damageReport" />
+
 						<OverdueMaintenance
 							v-for="overdueMaintenance in inspection.overdueMaintenance"
 							:key="overdueMaintenance.id"
 							:report="overdueMaintenance" />
-						<!--	<TechnicalInstallation
-							v-if="inspection.technicalInstallation"
-							:report="inspection.technicalInstallation" />
-						<Modification v-if="inspection.modification" :report="inspection.modification" /> -->
+
+						<TechnicalInstallation
+							v-for="technicalInstallation in inspection.technicalInstallations"
+							:key="technicalInstallation.id"
+							:report="technicalInstallation" />
+
+						<Modification
+							v-for="modification in inspection.modifications"
+							:key="modification.id"
+							:report="modification" />
 					</div>
 				</ion-card-content>
 			</ion-card>
