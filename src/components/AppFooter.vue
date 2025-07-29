@@ -7,7 +7,7 @@
 			</router-link>
 			<router-link to="/search-page" class="footer-link">
 				<ion-icon :icon="search"></ion-icon>
-				<span>Zoeken</span>
+				<span>Zoekens</span>
 			</router-link>
 			<router-link to="/information-page" class="footer-link">
 				<ion-icon :icon="informationCircle"></ion-icon>
