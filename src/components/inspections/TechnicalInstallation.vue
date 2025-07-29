@@ -4,41 +4,27 @@
 			<h2 class="title">Technische installaties ID: {{ report.id }}</h2>
 		</div>
 
-		<div class="info-row">
-			<strong>Locatie:</strong>
-			<span>{{ report.location }}</span>
-		</div>
+		<InfoRow label="Locatie:" :value="getValue(report.location)" />
 
-		<div class="info-row">
-			<strong>Soort installatie:</strong>
-			<span>{{ report.installationType }}</span>
-		</div>
+		<InfoRow label="Soort installatie:" :value="getValue(report.installationType)" />
 
-		<div class="info-row">
-			<strong>Gemelde storingen:</strong>
-			<span>{{ report.reportedMalfunction }}</span>
-		</div>
+		<InfoRow label="Gemelde storingen:" :value="getValue(report.reportedMalfunction)" />
 
-		<div class="info-row">
-			<strong>Testprocedure:</strong>
+		<InfoRow label="Testprocedure:" :value="getValue(report.testProcedure)">
 			<a v-if="report.testProcedure" :href="report.testProcedure" target="_blank" rel="noopener">
-				Open testprocedure (PDF)
+				{{ report.testProcedure }}
 			</a>
-			<span v-else>Geen testprocedure beschikbaar</span>
-		</div>
+			<span v-else>Geen testprocedure beschikbaar.</span>
+		</InfoRow>
 
-		<div class="info-row">
+		<InfoRow label="Status:">
 			<ion-badge v-if="report.approved" color="success">Goedgekeurd</ion-badge>
 			<ion-badge v-else color="danger">Niet goedgekeurd</ion-badge>
-		</div>
+		</InfoRow>
 
-		<div class="info-row">
-			<strong>Opmerkingen:</strong>
-			<span>{{ report.comments }}</span>
-		</div>
+		<InfoRow label="Opmerkingen:" :value="getValue(report.comments)" />
 
-		<div class="info-row">
-			<strong>Foto's:</strong>
+		<InfoRow label="Foto's:">
 			<div class="photo-grid" v-if="report.photos.length">
 				<ion-img
 					v-for="(photo, index) in report.photos"
@@ -47,17 +33,23 @@
 					class="inspection-photo"
 					@click="openPhotoModal(photo)" />
 			</div>
-		</div>
+		</InfoRow>
 
-		<PhotoModal :is-open="isPhotoModalOpen" :photo="selectedPhoto" @close="closePhotoModal" />
+		<PhotoModal
+			:is-open="isPhotoModalOpen"
+			v-model:photo="selectedPhoto"
+			:allPhotos="report.photos"
+			@close="isPhotoModalOpen = false" />
 	</div>
 </template>
 
 <script>
+import { getValue } from "@/utils/reportHelpers.js";
 import { getPhotoUrl } from "@/utils/photoUtils";
 import { usePhotoModal } from "@/composables/usePhotoModal.js";
 import { IonBadge, IonImg } from "@ionic/vue";
 import PhotoModal from "@/components/PhotoModal.vue";
+import InfoRow from "@/components/InfoRow.vue";
 
 export default {
 	name: "TechnicalInstallation",
@@ -65,6 +57,7 @@ export default {
 		IonBadge,
 		IonImg,
 		PhotoModal,
+		InfoRow,
 	},
 	props: {
 		report: {
@@ -80,6 +73,7 @@ export default {
 			openPhotoModal,
 			closePhotoModal,
 			getPhotoUrl,
+			getValue,
 		};
 	},
 };

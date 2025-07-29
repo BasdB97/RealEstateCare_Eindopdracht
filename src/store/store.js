@@ -9,7 +9,7 @@ export const useStore = defineStore("store", {
 	}),
 	actions: {
 		async fetchReports() {
-			console.log("🔄 [Store] Starting fetchReports...");
+			console.log("Starting fetchReports");
 			try {
 				this.loading = true;
 				this.error = null;
@@ -21,7 +21,7 @@ export const useStore = defineStore("store", {
 					? `https://api.jsonbin.io/v3/b/${env.VITE_JSONBIN_BIN_ID}` // jsonbin.io
 					: env.VITE_LOCAL_REPORTS_PATH; // /reports voor json-server
 
-				console.log(`🌐 [Store] Fetching from URL: ${url} (prod: ${isProd})`);
+				console.log(`Fetching from URL: ${url} (prod: ${isProd})`);
 
 				const response = await axios.get(url, {
 					headers: {
@@ -29,18 +29,16 @@ export const useStore = defineStore("store", {
 					},
 				});
 
-				console.log("📥 [Store] Raw API response:", response);
+				console.log("Raw API response:", response);
 
 				const reports = normalizeReports(response.data);
-				console.log("🔍 [Store] Reports:", reports);
+				console.log("Reports:", reports);
 
 				// Normaliseer payload (json-server vs jsonbin)
 				this.reports = normalizeReports(reports);
-
-				console.log(`✅ [Store] Successfully loaded ${this.reports.length} reports`);
 			} catch (err) {
-				console.error("❌ [Store] Error fetching reports:", err);
-				console.error("❌ [Store] Error details:", {
+				console.error("Error fetching reports:", err);
+				console.error("Error details:", {
 					message: err.message,
 					status: err.response?.status,
 					statusText: err.response?.statusText,
@@ -50,7 +48,7 @@ export const useStore = defineStore("store", {
 				this.reports = [];
 			} finally {
 				this.loading = false;
-				console.log("🏁 [Store] fetchReports completed");
+				console.log("fetchReports completed");
 			}
 		},
 	},

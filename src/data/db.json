@@ -19,7 +19,7 @@
 							"damageType": "inbraakschade",
 							"date": "2024-07-01",
 							"urgentActionRequired": false,
-							"description": "Inbraakschade aan het slot.",
+							"description": "",
 							"photos": ["slot_schade.jpg"]
 						},
 						{
@@ -87,7 +87,7 @@
 							"new": true,
 							"damageType": "slijtage",
 							"date": "2025-05-13",
-							"urgentActionRequired": true,
+							"urgentActionRequired": false,
 							"description": "Schroef van hendel aandraaien.",
 							"photos": ["voordeur_schade_1.jpg", "voordeur_schade_2.jpg"]
 						}
@@ -197,7 +197,11 @@
 							"date": "2025-06-02",
 							"urgentActionRequired": true,
 							"description": "Schutting beschadigd door storm.",
-							"photos": []
+							"photos": [
+								"stormschade_schutting_1.jpg",
+								"stormschade_schutting_2.jpg",
+								"stormschade_schutting_3.jpg"
+							]
 						}
 					],
 					"overdueMaintenance": [
@@ -207,7 +211,7 @@
 							"maintenanceType": "schilderwerk",
 							"urgentActionRequired": true,
 							"costIndication": "500-1500",
-							"photos": ["dakkapel_schilderwerk_1.jpg"]
+							"photos": ["schilderwerk_dakkapel_1.jpg"]
 						}
 					],
 					"technicalInstallations": [

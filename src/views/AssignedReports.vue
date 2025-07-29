@@ -1,13 +1,13 @@
 <template>
 	<base-layout pageTitle="Assigned Reports">
-		<ion-spinner v-if="loading" name="circles" id="spinner"></ion-spinner>
+		<ion-spinner v-if="loading.value" name="circles" id="spinner"></ion-spinner>
 		<ion-content v-else>
 			<h1 class="ion-text-center">Toegewezen rapportages</h1>
 			<ion-card
 				v-for="report in reports"
 				:key="report.id"
-				:class="['report-card', { 'content-open': report.showContent }]">
-				<ion-card-header @click="toggleReport(report)" class="report-card-header">
+				:class="['report-card', { 'content-open': report.id === openedReportId }]">
+				<ion-card-header @click="toggleReport(report.id)" class="report-card-header">
 					<ion-card-title>
 						{{ report.street }} {{ report.houseNumber }}, {{ report.city }}
 					</ion-card-title>
@@ -16,29 +16,31 @@
 					</ion-card-subtitle>
 				</ion-card-header>
 
-				<ion-card-content v-if="report.showContent">
-					<div v-for="(inspection, i) in report.inspections" :key="i">
-						<DamageReport
-							v-for="damageReport in inspection.damageReports"
-							:key="damageReport.id"
-							:report="damageReport" />
+				<transition name="fade">
+					<ion-card-content v-if="report.id === openedReportId">
+						<div v-for="(inspection, i) in report.inspections" :key="i">
+							<DamageReport
+								v-for="damageReport in inspection.damageReports"
+								:key="damageReport.id"
+								:report="damageReport" />
 
-						<OverdueMaintenance
-							v-for="overdueMaintenance in inspection.overdueMaintenance"
-							:key="overdueMaintenance.id"
-							:report="overdueMaintenance" />
+							<OverdueMaintenance
+								v-for="overdueMaintenance in inspection.overdueMaintenance"
+								:key="overdueMaintenance.id"
+								:report="overdueMaintenance" />
 
-						<TechnicalInstallation
-							v-for="technicalInstallation in inspection.technicalInstallations"
-							:key="technicalInstallation.id"
-							:report="technicalInstallation" />
+							<TechnicalInstallation
+								v-for="technicalInstallation in inspection.technicalInstallations"
+								:key="technicalInstallation.id"
+								:report="technicalInstallation" />
 
-						<Modification
-							v-for="modification in inspection.modifications"
-							:key="modification.id"
-							:report="modification" />
-					</div>
-				</ion-card-content>
+							<Modification
+								v-for="modification in inspection.modifications"
+								:key="modification.id"
+								:report="modification" />
+						</div>
+					</ion-card-content>
+				</transition>
 			</ion-card>
 		</ion-content>
 	</base-layout>
@@ -53,20 +55,21 @@ import {
 	IonCardTitle,
 	IonCardSubtitle,
 	IonCardContent,
-	IonIcon,
 } from "@ionic/vue";
+import { ref, computed, onMounted } from "vue";
 import { useStore } from "../store/store";
-import DamageReport from "../components/DamageReport.vue";
-import OverdueMaintenance from "../components/OverdueMaintenance.vue";
-import TechnicalInstallation from "../components/TechnicalInstallation.vue";
-import Modification from "../components/ModificationPage.vue";
+
+import DamageReport from "@/components/inspections/DamageReport.vue";
+import OverdueMaintenance from "@/components/inspections/OverdueMaintenance.vue";
+import TechnicalInstallation from "@/components/inspections/TechnicalInstallation.vue";
+import Modification from "@/components/inspections/ModificationPage.vue";
+
 export default {
 	name: "AssignedReports",
 	components: {
 		IonContent,
 		IonSpinner,
 		IonCard,
-		IonIcon,
 		IonCardHeader,
 		IonCardTitle,
 		IonCardSubtitle,
@@ -76,35 +79,25 @@ export default {
 		TechnicalInstallation,
 		Modification,
 	},
-	data() {
-		return {
-			store: useStore(),
+	setup() {
+		const store = useStore();
+
+		const openedReportId = ref(null);
+
+		const toggleReport = (reportId) => {
+			openedReportId.value = openedReportId.value === reportId ? null : reportId;
 		};
-	},
-	mounted() {
-		this.store.fetchReports();
-	},
-	methods: {
-		// Method that closes all reports and opens the selected report
-		toggleReport(selectedReport) {
-			const isCurrentlyOpen = selectedReport.showContent;
 
-			this.reports.forEach((report) => {
-				report.showContent = false;
-			});
+		onMounted(() => {
+			store.fetchReports();
+		});
 
-			if (!isCurrentlyOpen) {
-				selectedReport.showContent = true;
-			}
-		},
-	},
-	computed: {
-		reports() {
-			return this.store.sortedReportsByDate;
-		},
-		loading() {
-			return this.store.loadingStatus;
-		},
+		return {
+			reports: computed(() => store.sortedReportsByDate),
+			loading: computed(() => store.loadingStatus),
+			toggleReport,
+			openedReportId,
+		};
 	},
 };
 </script>
@@ -118,7 +111,6 @@ ion-card-title {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-
 .report-card {
 	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.15);
 	border-radius: 0.5rem; /* 8px */
@@ -126,7 +118,13 @@ ion-card-title {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 200ms;
 }
-.report-card-header {
-	cursor: pointer;
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
 }
 </style>

@@ -10,51 +10,46 @@
 			</ion-chip>
 		</div>
 
-		<div class="info-row" v-if="report.urgentActionRequired">
+		<InfoRow v-if="report.urgentActionRequired">
 			<ion-badge color="danger">Acute actie vereist!</ion-badge>
-		</div>
+		</InfoRow>
 
-		<div class="info-row">
-			<strong>Locatie:</strong>
-			<span>{{ report.location }}</span>
-		</div>
+		<InfoRow label="Locatie:" :value="getValue(report.location)" />
 
-		<div class="info-row">
-			<strong>Soort schade:</strong>
-			<span>{{ report.damageType }}</span>
-		</div>
+		<InfoRow label="Soort schade:" :value="getValue(report.damageType)" />
 
-		<div class="info-row">
-			<strong>Datum:</strong>
-			<span>{{ report.date }}</span>
-		</div>
+		<InfoRow label="Datum:" :value="getValue(report.date)" />
 
-		<div class="info-row">
-			<strong>Omschrijving:</strong>
-			<span>{{ report.description || "Geen omschrijving beschikbaar." }}</span>
-		</div>
+		<InfoRow label="Omschrijving:" :value="getValue(report.description)" />
 
-		<div class="info-row">
-			<strong>Foto's:</strong>
-			<div class="photo-grid" v-if="report.photos.length">
-				<ion-img
-					v-for="(photo, index) in report.photos"
-					:key="index"
-					:src="getPhotoUrl(photo)"
-					class="inspection-photo"
-					@click="openPhotoModal(photo)" />
-			</div>
-			<div v-else>
+		<InfoRow label="Foto's:">
+			<template v-if="report.photos.length">
+				<div class="photo-grid">
+					<ion-img
+						v-for="(photo, index) in report.photos"
+						:key="index"
+						:src="getPhotoUrl(photo)"
+						class="inspection-photo"
+						@click="openPhotoModal(photo)" />
+				</div>
+			</template>
+			<template v-else>
 				<span>Geen foto's beschikbaar.</span>
-			</div>
-		</div>
+			</template>
+		</InfoRow>
 
 		<!-- Photo Modal -->
-		<PhotoModal :is-open="isPhotoModalOpen" :photo="selectedPhoto" @close="closePhotoModal" />
+		<PhotoModal
+			:is-open="isPhotoModalOpen"
+			v-model:photo="selectedPhoto"
+			:allPhotos="report.photos"
+			@close="isPhotoModalOpen = false" />
 	</div>
 </template>
 
 <script>
+import InfoRow from "@/components/InfoRow.vue";
+import { getValue } from "@/utils/reportHelpers.js";
 import { getPhotoUrl } from "@/utils/photoUtils";
 import { usePhotoModal } from "@/composables/usePhotoModal.js";
 import PhotoModal from "@/components/PhotoModal.vue";
@@ -90,6 +85,7 @@ export default {
 		IonIcon,
 		IonContent,
 		PhotoModal,
+		InfoRow,
 	},
 	props: {
 		report: {
@@ -106,6 +102,11 @@ export default {
 			closePhotoModal,
 			getPhotoUrl,
 		};
+	},
+	methods: {
+		getValue(value, fallback = "Niet beschikbaar") {
+			return value || fallback;
+		},
 	},
 };
 </script>
