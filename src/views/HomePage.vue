@@ -74,15 +74,6 @@ export default {
 	transition-duration: 200ms;
 }
 
-.menu-item:hover {
-	transform: scale(1.05);
-	box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-.menu-item:active {
-	transform: scale(0.95);
-}
-
 .menu-icon {
 	color: var(--menu-icon);
 	font-size: 60px;

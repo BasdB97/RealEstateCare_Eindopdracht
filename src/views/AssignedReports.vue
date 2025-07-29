@@ -129,9 +129,4 @@ ion-card-title {
 .report-card-header {
 	cursor: pointer;
 }
-
-.report-card:active {
-	transform: scale(0.95);
-	transition-duration: 200ms;
-}
 </style>

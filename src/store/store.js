@@ -31,7 +31,7 @@ export const useStore = defineStore("store", {
 
 				console.log("📥 [Store] Raw API response:", response);
 
-				const reports = response.data.record.reports;
+				const reports = normalizeReports(response.data);
 				console.log("🔍 [Store] Reports:", reports);
 
 				// Normaliseer payload (json-server vs jsonbin)

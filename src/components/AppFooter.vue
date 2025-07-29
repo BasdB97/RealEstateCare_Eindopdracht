@@ -49,7 +49,7 @@ import { home, search, informationCircle } from "ionicons/icons";
 	}
 }
 
-.footer-link:hover {
+.footer-link:active {
 	color: #d1d5db;
 	transition-property: color, background-color, border-color, outline-color, text-decoration-color,
 		fill, stroke;

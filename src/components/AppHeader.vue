@@ -50,11 +50,12 @@ ion-icon {
 	padding-inline-end: 1rem;
 	font-size: 36px;
 }
-ion-icon:hover {
+ion-icon:active {
 	color: #d1d5db;
 	scale: 1.05;
 	cursor: pointer;
-	transition-property: color, scale;
+	transition-property: color, background-color, border-color, outline-color, text-decoration-color,
+		fill, stroke;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 200ms;
 }
