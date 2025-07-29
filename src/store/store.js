@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
-import { api } from "@/services/api";
-// import axios from "axios";
+import axios from "axios";
 
 export const useStore = defineStore("store", {
 	state: () => ({
@@ -10,28 +9,48 @@ export const useStore = defineStore("store", {
 	}),
 	actions: {
 		async fetchReports() {
-			this.loading = true;
-			this.error = null;
-
+			console.log("🔄 [Store] Starting fetchReports...");
 			try {
+				this.loading = true;
+				this.error = null;
 				const isProd = import.meta.env.PROD;
 				const env = import.meta.env;
 
 				// Bepaal endpoint
 				const url = isProd
-					? `/b/${env.VITE_JSONBIN_BIN_ID}/latest` // jsonbin.io
+					? `https://api.jsonbin.io/v3/b/${env.VITE_JSONBIN_BIN_ID}` // jsonbin.io
 					: env.VITE_LOCAL_REPORTS_PATH; // /reports voor json-server
 
-				const { data } = await api.get(url);
+				console.log(`🌐 [Store] Fetching from URL: ${url} (prod: ${isProd})`);
+
+				const response = await axios.get(url, {
+					headers: {
+						"X-Access-Key": env.VITE_JSONBIN_ACCESS_KEY,
+					},
+				});
+
+				console.log("📥 [Store] Raw API response:", response);
+
+				const reports = response.data.record.reports;
+				console.log("🔍 [Store] Reports:", reports);
 
 				// Normaliseer payload (json-server vs jsonbin)
-				this.reports = normalizeReports(data);
+				this.reports = normalizeReports(reports);
+
+				console.log(`✅ [Store] Successfully loaded ${this.reports.length} reports`);
 			} catch (err) {
-				console.error(err);
+				console.error("❌ [Store] Error fetching reports:", err);
+				console.error("❌ [Store] Error details:", {
+					message: err.message,
+					status: err.response?.status,
+					statusText: err.response?.statusText,
+					data: err.response?.data,
+				});
 				this.error = err;
 				this.reports = [];
 			} finally {
 				this.loading = false;
+				console.log("🏁 [Store] fetchReports completed");
 			}
 		},
 	},
