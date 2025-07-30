@@ -6,7 +6,6 @@
 			</router-link>
 			<div class="icon-container">
 				<ion-icon :icon="notifications" class="header-icon"></ion-icon>
-				<ion-icon :icon="settings" class="header-icon"></ion-icon>
 			</div>
 		</div>
 	</header>

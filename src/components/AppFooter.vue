@@ -5,11 +5,11 @@
 				<ion-icon :icon="home"></ion-icon>
 				<span>Home</span>
 			</router-link>
-			<router-link to="/search-page" class="footer-link">
+			<router-link to="/search" class="footer-link">
 				<ion-icon :icon="search"></ion-icon>
 				<span>Zoeken</span>
 			</router-link>
-			<router-link to="/information-page" class="footer-link">
+			<router-link to="/information" class="footer-link">
 				<ion-icon :icon="informationCircle"></ion-icon>
 				<span>Informatie</span>
 			</router-link>

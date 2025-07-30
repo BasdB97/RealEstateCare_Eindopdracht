@@ -14,7 +14,7 @@
 					<ion-icon :icon="apps" class="menu-icon" />
 					<span class="menu-title">Kennisbank</span>
 				</router-link>
-				<router-link to="/settings-page" class="menu-item">
+				<router-link to="/settings" class="menu-item">
 					<ion-icon :icon="settings" class="menu-icon" />
 					<span class="menu-title">Instellingen</span>
 				</router-link>

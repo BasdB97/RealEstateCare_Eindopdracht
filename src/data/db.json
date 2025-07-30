@@ -3,11 +3,7 @@
 		{
 			"id": 0,
 			"reportDate": "2024-07-10",
-			"street": "",
-			"houseNumber": "",
-			"postalCode": "",
-			"city": "",
-			"country": "",
+			"location": "Appelhof 21, 5235JF, Amstelveen",
 			"completed": false,
 			"inspections": [
 				{
@@ -72,11 +68,7 @@
 		{
 			"id": 1,
 			"reportDate": "2025-02-05",
-			"street": "Hoofdstraat",
-			"houseNumber": "123",
-			"postalCode": "1234 AB",
-			"city": "Amsterdam",
-			"country": "Nederland",
+			"location": "Hoofdstraat 123, 1234AB, Amsterdam",
 			"completed": true,
 			"inspections": [
 				{
@@ -131,11 +123,7 @@
 		{
 			"id": 2,
 			"reportDate": "2024-10-25",
-			"street": "Kerkstraat",
-			"houseNumber": "45",
-			"postalCode": "2345 CD",
-			"city": "Rotterdam",
-			"country": "Nederland",
+			"location": "Kerkstraat 45, 2345CD, Rotterdam",
 			"completed": false,
 			"inspections": [
 				{
@@ -180,11 +168,7 @@
 		{
 			"id": 3,
 			"reportDate": "2025-04-01",
-			"street": "Parkweg",
-			"houseNumber": "78",
-			"postalCode": "3456 EF",
-			"city": "Utrecht",
-			"country": "Nederland",
+			"location": "Parkweg 78, 3456 EF, Utrecht",
 			"completed": true,
 			"inspections": [
 				{
@@ -244,11 +228,7 @@
 		{
 			"id": 4,
 			"reportDate": "2024-12-17",
-			"street": "Stationsplein",
-			"houseNumber": "12",
-			"postalCode": "4567 GH",
-			"city": "Den Haag",
-			"country": "Nederland",
+			"location": "Stationsplein 12, 4567 GH, Den Haag",
 			"completed": false,
 			"inspections": [
 				{
@@ -282,11 +262,7 @@
 		{
 			"id": 5,
 			"reportDate": "2024-09-30",
-			"street": "Molenstraat",
-			"houseNumber": "56",
-			"postalCode": "5678 IJ",
-			"city": "Groningen",
-			"country": "Nederland",
+			"location": "Molenstraat 56, 5678 IJ, Groningen",
 			"completed": false,
 			"inspections": [
 				{
@@ -321,11 +297,7 @@
 		{
 			"id": 6,
 			"reportDate": "2023-03-12",
-			"street": "Dorpstraat",
-			"houseNumber": "89",
-			"postalCode": "6789 KL",
-			"city": "Eindhoven",
-			"country": "Nederland",
+			"location": "Dorpstraat 89, 6789 KL, Eindhoven",
 			"completed": true,
 			"inspections": [
 				{

@@ -3,21 +3,25 @@
 		<ion-spinner v-if="loading.value" name="circles" id="spinner"></ion-spinner>
 		<ion-content v-else>
 			<h1 class="ion-text-center">Toegewezen rapportages</h1>
-			<ion-card
-				v-for="report in reports"
-				:key="report.id"
-				:class="['report-card', { 'content-open': report.id === openedReportId }]">
-				<ion-card-header @click="toggleReport(report.id)" class="report-card-header">
-					<ion-card-title>
-						{{ report.street }} {{ report.houseNumber }}, {{ report.city }}
-					</ion-card-title>
-					<ion-card-subtitle class="report-card-subtitle">
-						{{ report.reportDate }}
-					</ion-card-subtitle>
+			<ion-card v-for="report in reports" :key="report.id" class="report-card">
+				<ion-card-header @click="report.showContent = !report.showContent">
+					<div class="header-content">
+						<div class="header-text">
+							<ion-card-title>
+								{{ report.location }}
+							</ion-card-title>
+							<ion-card-subtitle>
+								{{ report.reportDate }}
+							</ion-card-subtitle>
+						</div>
+						<ion-button fill="clear" @click="editReport(report.id, $event)" class="edit-button">
+							<ion-icon :icon="createOutline" slot="icon-only" size="large"></ion-icon>
+						</ion-button>
+					</div>
 				</ion-card-header>
 
 				<transition name="fade">
-					<ion-card-content v-if="report.id === openedReportId">
+					<ion-card-content v-if="report.showContent">
 						<div v-for="(inspection, i) in report.inspections" :key="i">
 							<DamageReport
 								v-for="damageReport in inspection.damageReports"
@@ -55,9 +59,13 @@ import {
 	IonCardTitle,
 	IonCardSubtitle,
 	IonCardContent,
+	IonButton,
+	IonIcon,
 } from "@ionic/vue";
 import { ref, computed, onMounted } from "vue";
 import { useStore } from "../store/store";
+import { useRouter } from "vue-router";
+import { createOutline } from "ionicons/icons";
 
 import DamageReport from "@/components/inspections/DamageReport.vue";
 import OverdueMaintenance from "@/components/inspections/OverdueMaintenance.vue";
@@ -74,6 +82,8 @@ export default {
 		IonCardTitle,
 		IonCardSubtitle,
 		IonCardContent,
+		IonButton,
+		IonIcon,
 		DamageReport,
 		OverdueMaintenance,
 		TechnicalInstallation,
@@ -81,11 +91,26 @@ export default {
 	},
 	setup() {
 		const store = useStore();
+		const router = useRouter();
 
-		const openedReportId = ref(null);
+		const openedReportIds = ref([]);
 
 		const toggleReport = (reportId) => {
-			openedReportId.value = openedReportId.value === reportId ? null : reportId;
+			const index = openedReportIds.value.indexOf(reportId);
+			if (index > -1) {
+				// Rapport is al open, sluit het
+				openedReportIds.value.splice(index, 1);
+			} else {
+				// Rapport is gesloten, open het
+				openedReportIds.value.push(reportId);
+			}
+		};
+
+		const editReport = (reportId, event) => {
+			// Voorkom dat de toggle functie wordt uitgevoerd
+			event.stopPropagation();
+			// Navigeer naar edit pagina (pas aan naar jouw route structuur)
+			router.push(`/reports/${reportId}/edit`);
 		};
 
 		onMounted(() => {
@@ -96,14 +121,16 @@ export default {
 			reports: computed(() => store.sortedReportsByDate),
 			loading: computed(() => store.loadingStatus),
 			toggleReport,
-			openedReportId,
+			openedReportIds,
+			editReport,
+			createOutline,
 		};
 	},
 };
 </script>
 <style scoped>
 ion-card-title {
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 #spinner {
 	position: absolute;
@@ -117,6 +144,24 @@ ion-card-title {
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 200ms;
+}
+
+.header-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.header-text {
+	flex: 1;
+}
+
+.edit-button {
+	--color: #000;
+	margin: 0;
+	min-width: 48px;
+	min-height: 48px;
 }
 
 .fade-enter-active,

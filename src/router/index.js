@@ -27,14 +27,19 @@ const routes = [
 		component: () => import("@/views/KnowledgeBase.vue"),
 	},
 	{
-		path: "/settings-page",
+		path: "/settings",
 		name: "Settings",
 		component: () => import("@/views/SettingsPage.vue"),
 	},
 	{
-		path: "/search-page",
+		path: "/search",
 		name: "Search",
 		component: () => import("@/views/SearchPage.vue"),
+	},
+	{
+		path: "/information",
+		name: "Information",
+		component: () => import("@/views/InformationPage.vue"),
 	},
 ];
 
